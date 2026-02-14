@@ -4,10 +4,19 @@ import SurahPage from "./pages/Surah"
 
 function App() {
   return (
-    <Routes>
+
+    <>
+    
+        <Routes>
       <Route path="/" element={<SurahList />} />
       <Route path="/surah/:id" element={<SurahPage />} />
     </Routes>
+
+
+    </>
+
+
+
   )
 }
 
