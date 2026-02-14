@@ -1,0 +1,47 @@
+import { useParams } from "react-router-dom"
+import { useQuran } from "../hooks/useQuran"
+import { surahNames } from "../data/surahNames"
+
+const SurahPage = () => {
+
+  const { id } = useParams()
+  const { quran } = useQuran()
+
+  const surahId = Number(id)
+  const surah = quran[surahId]
+
+  if (!surah) return <div className="p-10 text-center text-red-500">السورة غير موجودة</div>
+
+  return (
+    <div className="max-w-3xl mx-auto p-6 leading-9 text-right">
+
+      <h1 className="text-3xl font-bold text-center mb-6">
+        سورة {surahNames[surahId]}
+      </h1>
+
+      {/* البسملة تظهر في كل السور ماعدا التوبة */}
+      {surahId !== 9 && (
+        <h2 className="text-2xl text-center mb-8 text-green-700">
+          بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
+        </h2>
+      )}
+
+      {surah.map((ayah) => (
+       <p
+  key={ayah.verse}
+  className="mb-4 text-2xl text-center leading-[3rem]"
+  dir="rtl"
+>
+  <span className="text-green-700 ml-4 inline-block">
+    ﴿{ayah.verse}﴾
+  </span>
+  {ayah.text}
+</p>
+
+      ))}
+
+    </div>
+  )
+}
+
+export default SurahPage
