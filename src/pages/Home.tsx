@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
 import { useLastRead } from "../hooks/useLastRead"
+import { surahNames } from "../data/surahNames"
+
 
 
 const Home = () => {
   const { surah, ayah } = useLastRead()
-
+ 
   return (
     <div className="flex flex-col items-center justify-center text-center p-6" role="main">
 
@@ -34,7 +36,7 @@ const Home = () => {
         to={`/surah/${surah}`}
         className="mt-6 px-8 py-3 rounded-2xl border border-gray-500 text-blue-400 hover:bg-gray-200 hover:text-black transition"
       >
-        اكمل القراءة — سورة {surah} آية {ayah}
+        اكمل القراءة — سورة {surahNames[surah]} آية {ayah}
       </Link>
 
 
