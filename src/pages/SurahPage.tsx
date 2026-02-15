@@ -3,7 +3,9 @@ import { useQuran } from "../hooks/useQuran"
 import { surahNames } from "../data/surahNames"
 import { useSettings } from "../hooks/useSettings"
 import { useLastRead } from "../hooks/useLastRead"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+
+
 
 const SurahPage = () => {
 
@@ -11,6 +13,7 @@ const SurahPage = () => {
   const { quran } = useQuran()
   const { fontSize, setFontSize } = useSettings()
   const { setLastRead, surah: savedSurah, ayah: savedAyah } = useLastRead()
+  const [showSaved, setShowSaved] = useState(false)
 
   // مهم: تعريفهم قبل useEffect
   const surahId = Number(id)
@@ -33,6 +36,9 @@ const SurahPage = () => {
     }
   }, [surahId, savedAyah, savedSurah])
 
+
+
+
   if (!surah)
     return <div className="p-10 text-center text-red-500">السورة غير موجودة</div>
 
@@ -43,6 +49,8 @@ const SurahPage = () => {
       <h1 className="text-3xl font-bold text-center mb-6">
         سورة {surahNames[surahId]}
       </h1>
+
+
 
       {/* التحكم في حجم الخط */}
       <h2 className="text-xl text-center mb-4 text-white">
@@ -74,6 +82,11 @@ const SurahPage = () => {
 
       </div>
 
+      <div className="mb-8 text-center bg-blue-900/40 border border-blue-700 text-blue-200 px-6 py-4 rounded-2xl max-w-xl mx-auto">
+        لو عايز تحفظ مكان قراءتك اضغط على الآية اللي وقفت عندها
+      </div>
+
+
       {/* البسملة */}
       {surahId !== 9 && (
         <h2 className="text-2xl text-center mb-10 text-green-700">
@@ -91,12 +104,21 @@ const SurahPage = () => {
               ayahRefs.current[ayah.verse] = el
             }}
 
-            onClick={() => setLastRead(surahId, ayah.verse)}
+            onClick={() => {
+              setLastRead(surahId, ayah.verse)
+              setShowSaved(true)
+
+              setTimeout(() => {
+                setShowSaved(false)
+              }, 2000)
+            }}
+
             className="mb-6 text-center cursor-pointer"
             style={{
               fontSize: `${fontSize}px`,
               lineHeight: `${fontSize * 2}px`
             }}
+
           >
             <span className="text-green-700 ml-4 inline-block">
               ﴿{ayah.verse}﴾
@@ -106,6 +128,13 @@ const SurahPage = () => {
         ))}
 
       </div>
+
+      {showSaved && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-2xl shadow-lg animate-fade">
+          تم حفظ مكان القراءة ✓
+        </div>
+      )}
+
 
     </div>
   )
