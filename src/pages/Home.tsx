@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center p-6">
+    <div className="flex flex-col items-center justify-center text-center p-6" role="main">
 
       <h1 className="text-5xl font-bold mb-6 text-blue-400">
         القرآن الكريم
