@@ -20,6 +20,30 @@
 }
 
 
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  forced-color-adjust: none;
+}
+
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+
+@media (forced-colors: active) {
+  * {
+    forced-color-adjust: none;
+  }
+}
+
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -35,8 +59,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #1e1f22;
   justify-content: center;
+  forced-color-adjust: none;
+  background-color: #1e1f22 !important;
+  color: #e5e7eb !important;
 }
 
 h1 {
