@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom"
 
 const Home = () => {
-    return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#1e1f22] text-center p-6">
+  return (
+    <div className="flex flex-col items-center justify-center bg-[#1e1f22] text-center p-6">
 
-            <h1 className="text-5xl font-bold mb-6 text-blue-400">
-                القرآن الكريم
-            </h1>
+      <h1 className="text-5xl font-bold mb-6 text-blue-400">
+        القرآن الكريم
+      </h1>
 
-            <p className="text-lg mb-12 text-gray-300 max-w-xl leading-8">
-                اقرأ وتدبر آيات الله في تجربة هادئة
-            </p>
+      <p className="text-lg mb-12 text-gray-300 max-w-xl leading-8">
+ اقرأ وتدبر آيات الله في تجربة هادئة  
+      </p>
 
-            <Link
-                to="/surah"
-                className="
+      <Link
+        to="/surah"
+        className="
           px-10 py-4
           rounded-2xl
           border border-gray-500
@@ -22,12 +22,12 @@ const Home = () => {
           hover:bg-gray-200 hover:text-black
           transition duration-300
         "
-            >
-                ادخل إلى المصحف
-            </Link>
+      >
+        ادخل إلى المصحف
+      </Link>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Home
