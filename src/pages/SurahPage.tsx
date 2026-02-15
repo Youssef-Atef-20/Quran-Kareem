@@ -22,6 +22,10 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
+      <h2 className="text-2xl text-center mb-8 text-white">
+          حجم الخط
+        </h2>
+
      
       <div className="flex justify-center gap-4 mb-6">
 
@@ -55,7 +59,7 @@ const SurahPage = () => {
         </h2>
       )}
 
-      {/* الآيات */}
+      
       <div dir="rtl">
 
         {surah.map((ayah) => (
