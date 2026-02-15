@@ -4,13 +4,16 @@ import ReactDOM from "react-dom/client"
 import App from "./App"
 import { QuranProvider } from "./context/QuranProvider"
 import { BrowserRouter } from "react-router-dom"
+import { SettingsProvider } from "./context/SettingsProvider"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
    <BrowserRouter>
+    <SettingsProvider>
     <QuranProvider>
       <App />
     </QuranProvider>
+  </SettingsProvider>
   </BrowserRouter>
   </React.StrictMode>
 )
