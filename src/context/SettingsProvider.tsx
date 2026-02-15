@@ -14,10 +14,6 @@ export const SettingsProvider = ({ children }: { children: React.ReactNode }) =>
 }, [fontSize])
 
 
-  useEffect(() => {
-    localStorage.setItem("fontSize", fontSize.toString())
-  }, [fontSize])
-
   return (
     <SettingsContext.Provider value={{ fontSize, setFontSize }}>
       {children}

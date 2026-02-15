@@ -2,15 +2,36 @@ import { useParams } from "react-router-dom"
 import { useQuran } from "../hooks/useQuran"
 import { surahNames } from "../data/surahNames"
 import { useSettings } from "../hooks/useSettings"
+import { useLastRead } from "../hooks/useLastRead"
+import { useEffect, useRef } from "react"
 
 const SurahPage = () => {
 
   const { id } = useParams()
   const { quran } = useQuran()
   const { fontSize, setFontSize } = useSettings()
+  const { setLastRead, surah: savedSurah, ayah: savedAyah } = useLastRead()
 
+  // مهم: تعريفهم قبل useEffect
   const surahId = Number(id)
   const surah = quran[surahId]
+
+  // refs للآيات
+  const ayahRefs = useRef<{ [key: number]: HTMLParagraphElement | null }>({})
+
+  // scroll تلقائي لآخر آية
+  useEffect(() => {
+    if (!savedAyah) return
+
+    if (savedSurah === surahId) {
+      setTimeout(() => {
+        ayahRefs.current[savedAyah]?.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        })
+      }, 400)
+    }
+  }, [surahId, savedAyah, savedSurah])
 
   if (!surah)
     return <div className="p-10 text-center text-red-500">السورة غير موجودة</div>
@@ -18,16 +39,17 @@ const SurahPage = () => {
   return (
     <div className="max-w-3xl mx-auto p-6">
 
+      {/* اسم السورة */}
       <h1 className="text-3xl font-bold text-center mb-6">
         سورة {surahNames[surahId]}
       </h1>
 
-      <h2 className="text-2xl text-center mb-8 text-white">
-          حجم الخط
-        </h2>
+      {/* التحكم في حجم الخط */}
+      <h2 className="text-xl text-center mb-4 text-white">
+        حجم الخط
+      </h2>
 
-     
-      <div className="flex justify-center gap-4 mb-6">
+      <div className="flex justify-center gap-4 mb-8">
 
         <button
           onClick={() => setFontSize(Math.max(18, fontSize - 2))}
@@ -52,20 +74,25 @@ const SurahPage = () => {
 
       </div>
 
-      
+      {/* البسملة */}
       {surahId !== 9 && (
-        <h2 className="text-2xl text-center mb-8 text-green-700">
+        <h2 className="text-2xl text-center mb-10 text-green-700">
           بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
         </h2>
       )}
 
-      
+      {/* الآيات */}
       <div dir="rtl">
 
         {surah.map((ayah) => (
           <p
             key={ayah.verse}
-            className="mb-6 text-center"
+            ref={(el) => {
+              ayahRefs.current[ayah.verse] = el
+            }}
+
+            onClick={() => setLastRead(surahId, ayah.verse)}
+            className="mb-6 text-center cursor-pointer"
             style={{
               fontSize: `${fontSize}px`,
               lineHeight: `${fontSize * 2}px`

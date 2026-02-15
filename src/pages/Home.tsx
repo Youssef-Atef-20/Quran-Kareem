@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
+import { useLastRead } from "../hooks/useLastRead"
+
 
 const Home = () => {
+  const { surah, ayah } = useLastRead()
+
   return (
     <div className="flex flex-col items-center justify-center text-center p-6" role="main">
 
@@ -9,7 +13,7 @@ const Home = () => {
       </h1>
 
       <p className="text-lg mb-12 text-gray-300 max-w-xl leading-8">
- اقرأ وتدبر آيات الله في تجربة هادئة  
+        اقرأ وتدبر آيات الله في تجربة هادئة
       </p>
 
       <Link
@@ -25,6 +29,14 @@ const Home = () => {
       >
         ادخل إلى المصحف
       </Link>
+
+      <Link
+        to={`/surah/${surah}`}
+        className="mt-6 px-8 py-3 rounded-2xl border border-gray-500 text-blue-400 hover:bg-gray-200 hover:text-black transition"
+      >
+        اكمل القراءة — سورة {surah} آية {ayah}
+      </Link>
+
 
     </div>
   )
