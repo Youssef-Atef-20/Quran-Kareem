@@ -10,13 +10,13 @@ const SurahList = () => {
     .sort((a, b) => a - b)
 
   return (
-    <div className="p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+   <div className=" mx-auto p-6 flex flex-wrap justify-center gap-4">
 
       {surahs.map((id) => (
         <Link
           key={id}
           to={`/surah/${id}`}
-          className="p-4 rounded-xl border hover:bg-green-50 transition"
+          className="w-32 p-4 rounded-xl border text-center hover:bg-green-50 hover:scale-105 transition"
         >
           <h3 className="text-lg font-semibold text-center">
             {surahNames[id]}

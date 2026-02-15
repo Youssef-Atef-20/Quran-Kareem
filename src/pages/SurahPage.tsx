@@ -19,7 +19,7 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
-      {/* البسملة تظهر في كل السور ماعدا التوبة */}
+
       {surahId !== 9 && (
         <h2 className="text-2xl text-center mb-8 text-green-700">
           بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
@@ -27,16 +27,16 @@ const SurahPage = () => {
       )}
 
       {surah.map((ayah) => (
-       <p
-  key={ayah.verse}
-  className="mb-4 text-2xl text-center leading-[3rem]"
-  dir="rtl"
->
-  <span className="text-green-700 ml-4 inline-block">
-    ﴿{ayah.verse}﴾
-  </span>
-  {ayah.text}
-</p>
+        <p
+          key={ayah.verse}
+          className="mb-4 text-2xl text-center leading-[3rem]"
+          dir="rtl"
+        >
+          <span className="text-green-700 ml-4 inline-block">
+            ﴿{ayah.verse}﴾
+          </span>
+          {ayah.text}
+        </p>
 
       ))}
 
