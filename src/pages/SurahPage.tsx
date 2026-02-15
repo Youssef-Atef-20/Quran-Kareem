@@ -131,7 +131,7 @@ const SurahPage = () => {
 
       {showSaved && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-2xl shadow-lg animate-fade flex items-center gap-2 whitespace-nowrap">
-          تم حفظ مكان القراءة ✓
+         تم حفظ مكان آخر آية قرأتها ✓
         </div>
       )}
 
