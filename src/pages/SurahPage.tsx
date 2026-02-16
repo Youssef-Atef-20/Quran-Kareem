@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useQuran } from "../hooks/useQuran"
 import { surahNames } from "../data/surahNames"
 import { useSettings } from "../hooks/useSettings"
@@ -45,10 +45,10 @@ const SurahPage = () => {
   return (
     <div className="max-w-3xl mx-auto p-6">
 
-     
+      <Link to={"/"} className="fmt-10 mx-auto block w-fit px-6 py-3 rounded-2xl border border-gray-500 text-blue-400 bg-gray-900 hover:bg-gray-200 hover:text-black transition" > الرجوع للقائمة الرئيسية </Link >
 
       {/* اسم السورة */}
-      <h1 className="text-3xl font-bold text-center mb-6 mt-6">
+      < h1 className="text-3xl font-bold text-center mb-6 mt-6">
         سورة {surahNames[surahId]}
       </h1>
 
@@ -133,11 +133,11 @@ const SurahPage = () => {
 
       {showSaved && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-2xl shadow-lg animate-fade flex items-center gap-2 whitespace-nowrap">
-         تم حفظ مكان آخر آية قرأتها ✓
+          تم حفظ مكان آخر آية قرأتها ✓
         </div>
       )}
 
-    
+
 
     </div>
   )
