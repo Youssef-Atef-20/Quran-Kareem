@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useQuran } from "../hooks/useQuran"
 import { surahNames } from "../data/surahNames"
 import { useSettings } from "../hooks/useSettings"
@@ -134,6 +134,29 @@ const SurahPage = () => {
           تم حفظ مكان آخر آية قرأتها ✓
         </div>
       )}
+
+
+
+      <div className="flex justify-center gap-4 mb-8">
+
+        <Link
+          to={`/surah/${surahId - 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
+        >
+         السورة التالية ( {surahNames[surahId - 1]} )
+        </Link>
+
+       
+
+        <Link
+          to={`/surah/${surahId + 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
+        >
+          السورة السابقة ( {surahNames[surahId + 1]} )
+        </Link>
+
+      </div>
+
 
 
 
