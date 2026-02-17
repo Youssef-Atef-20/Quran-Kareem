@@ -50,26 +50,26 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
-       <div className="flex flex-row-reverse justify-center gap-4 mb-8">
+    
+ <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
         <Link
-          to={`/surah/${surahId - 1}`}
+          to={"/surah"}
           className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center "
         >
-         <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
+         كل السور
         </Link>
 
        
 
         <Link
-          to={`/surah/${surahId + 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center bg-green-700"
+          to={"/"}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center"
         >
-         <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
+         القائمة الرئيسية
         </Link>
 
       </div>
-
 
 
       {/* التحكم في حجم الخط */}
@@ -158,10 +158,25 @@ const SurahPage = () => {
       )}
 
 
+   <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
-     
+        <Link
+          to={`/surah/${surahId - 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center "
+        >
+         <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
+        </Link>
 
+       
 
+        <Link
+          to={`/surah/${surahId + 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center bg-green-700"
+        >
+         <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
+        </Link>
+
+      </div>
 
 
     </div>
