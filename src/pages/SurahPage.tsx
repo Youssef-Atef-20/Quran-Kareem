@@ -146,10 +146,16 @@ const SurahPage = () => {
     </p>
 
     {ayah.part && (
-      <div className="text-center my-8 text-yellow-500 font-bold">
-       ========== نهاية الجزء {ayah.part} ==========
-      </div>
-    )}
+  <div className="flex items-center my-12 gap-3">
+    <div className="flex-1 h-px bg-yellow-500/40"></div>
+
+    <span className="whitespace-nowrap px-4 py-1 text-yellow-500 font-bold text-lg">
+      ۞ الجزء {ayah.part}
+    </span>
+
+    <div className="flex-1 h-px bg-yellow-500/40"></div>
+  </div>
+)}
 
   </React.Fragment>
 ))}
