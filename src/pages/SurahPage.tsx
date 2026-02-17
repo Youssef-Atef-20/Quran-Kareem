@@ -139,13 +139,7 @@ const SurahPage = () => {
         lineHeight: `${fontSize * 2}px`
       }}
     >
-      <span className="text-green-700 ml-4 inline-block">
-        ﴿{ayah.verse}﴾
-      </span>
-      {ayah.text}
-    </p>
-
-    {ayah.part && (
+      {ayah.part && (
   <div className="flex items-center my-12 gap-3">
     <div className="flex-1 h-px bg-yellow-500/40"></div>
 
@@ -156,6 +150,13 @@ const SurahPage = () => {
     <div className="flex-1 h-px bg-yellow-500/40"></div>
   </div>
 )}
+      <span className="text-green-700 ml-4 inline-block">
+        ﴿{ayah.verse}﴾
+      </span>
+      {ayah.text}
+    </p>
+
+    
 
   </React.Fragment>
 ))}
