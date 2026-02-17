@@ -111,55 +111,60 @@ const SurahPage = () => {
 
 
       {/* البسملة */}
-      {surahId !== 1 && surahId !== 9 && (
-        <h2 className="text-2xl text-center mb-10 text-green-700">
-          بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
-        </h2>
-      )}
+
 
       {/* الآيات */}
-     {surah.map((ayah) => (
-  <React.Fragment key={ayah.verse}>
+      {surah.map((ayah, index) => (
+        <React.Fragment key={ayah.verse}>
 
-    <p
-      ref={(el) => {
-        ayahRefs.current[ayah.verse] = el
-      }}
-      onClick={() => {
-        setLastRead(surahId, ayah.verse)
-        setShowSaved(true)
+          {/* 1) عنوان الجزء */}
+          {ayah.part && (
+            <div className="flex items-center my-12 gap-3">
+              <div className="flex-1 h-px bg-yellow-500/40"></div>
 
-        setTimeout(() => {
-          setShowSaved(false)
-        }, 2000)
-      }}
-      className="mb-6 text-center cursor-pointer"
-      style={{
-        fontSize: `${fontSize}px`,
-        lineHeight: `${fontSize * 2}px`
-      }}
-    >
-      {ayah.part && (
-  <div className="flex items-center my-12 gap-3">
-    <div className="flex-1 h-px bg-yellow-500/40"></div>
+              <div className="whitespace-nowrap px-4 py-1 text-yellow-500 font-bold text-lg">
+                ۞ الجزء {ayah.part}
+              </div>
 
-    <span className="whitespace-nowrap px-4 py-1 text-yellow-500 font-bold text-lg">
-      ۞ الجزء {ayah.part}
-    </span>
+              <div className="flex-1 h-px bg-yellow-500/40"></div>
+            </div>
+          )}
 
-    <div className="flex-1 h-px bg-yellow-500/40"></div>
-  </div>
-)}
-      <span className="text-green-700 ml-4 inline-block">
-        ﴿{ayah.verse}﴾
-      </span>
-      {ayah.text}
-    </p>
+          {/* 2) البسملة - بداية السورة فقط */}
+          {index === 0 && ayah.verse === 1 && surahId !== 9 && (
+            <h2 className="text-2xl text-center mb-10 text-green-700">
+              بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
+            </h2>
+          )}
 
-    
+          {/* 3) الآية نفسها */}
+          <p
+            ref={(el) => {
+              ayahRefs.current[ayah.verse] = el
+            }}
+            onClick={() => {
+              setLastRead(surahId, ayah.verse)
+              setShowSaved(true)
 
-  </React.Fragment>
-))}
+              setTimeout(() => {
+                setShowSaved(false)
+              }, 2000)
+            }}
+            className="mb-6 text-center cursor-pointer"
+            style={{
+              fontSize: `${fontSize}px`,
+              lineHeight: `${fontSize * 2}px`
+            }}
+          >
+            <span className="text-green-700 ml-4 inline-block">
+              ﴿{ayah.verse}﴾
+            </span>
+            {ayah.text}
+          </p>
+
+        </React.Fragment>
+      ))}
+
 
 
       {showSaved && (
