@@ -88,7 +88,7 @@ const SurahPage = () => {
 
 
       {/* البسملة */}
-      {surahId !== 9 && (
+      {surahId !== 1 && surahId !== 9 && (
         <h2 className="text-2xl text-center mb-10 text-green-700">
           بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
         </h2>
