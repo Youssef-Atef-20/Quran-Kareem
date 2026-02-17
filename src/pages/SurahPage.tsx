@@ -50,23 +50,23 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
-    
- <div className="flex flex-row-reverse justify-center gap-4 mb-8">
+
+      <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
         <Link
           to={"/surah"}
           className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center "
         >
-         كل السور
+          كل السور
         </Link>
 
-       
+
 
         <Link
           to={"/"}
           className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center"
         >
-         القائمة الرئيسية
+          القائمة الرئيسية
         </Link>
 
       </div>
@@ -102,7 +102,7 @@ const SurahPage = () => {
 
       </div>
 
-      
+
 
       <div className="mb-8 text-center bg-blue-900/40 border border-blue-700 text-blue-200 px-6 py-4 rounded-2xl max-w-xl mx-auto">
         لو عايز تحفظ مكان قراءتك اضغط على الآية اللي وقفت عندها
@@ -158,23 +158,28 @@ const SurahPage = () => {
       )}
 
 
-   <div className="flex flex-row-reverse justify-center gap-4 mb-8">
+      <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
-        <Link
-          to={`/surah/${surahId - 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center "
-        >
-         <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
-        </Link>
+        {surahId - 1 >= 1 && (
+          <Link
+            to={`/surah/${surahId - 1}`}
+            className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center "
+          >
+            <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
+          </Link>
+        )}
 
-       
 
-        <Link
-          to={`/surah/${surahId + 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center bg-green-700"
-        >
-         <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
-        </Link>
+
+        {surahId + 1 <= 114 && (
+          <Link
+            to={`/surah/${surahId + 1}`}
+            className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center bg-green-700"
+          >
+            <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
+          </Link>
+        )}
+
 
       </div>
 
