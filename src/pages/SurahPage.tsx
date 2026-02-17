@@ -50,7 +50,7 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
-       <div className="flex justify-center gap-4 mb-8">
+       <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
         <Link
           to={`/surah/${surahId - 1}`}
@@ -77,7 +77,7 @@ const SurahPage = () => {
         حجم الخط
       </h2>
 
-      <div className="flex justify-center gap-4 mb-8">
+      <div className="flex flex-row-reverse justify-center gap-4 mb-8">
 
         <button
           onClick={() => setFontSize(Math.max(18, fontSize - 2))}
