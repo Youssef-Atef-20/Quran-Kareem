@@ -2,7 +2,7 @@ export interface Ayah {
   chapter: number
   verse: number
   text: string
-  part: number
+  part?: number
 }
 
 export type Quran = {
