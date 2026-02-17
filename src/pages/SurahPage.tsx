@@ -53,19 +53,19 @@ const SurahPage = () => {
        <div className="flex justify-center gap-4 mb-8">
 
         <Link
-          to={`/surah/${surahId + 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-44 text-center"
+          to={`/surah/${surahId - 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-44 text-center "
         >
-         <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
+         <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
         </Link>
 
        
 
         <Link
-          to={`/surah/${surahId - 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-44 text-center"
+          to={`/surah/${surahId + 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-44 text-center bg-green-700"
         >
-         <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
+         <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
         </Link>
 
       </div>
