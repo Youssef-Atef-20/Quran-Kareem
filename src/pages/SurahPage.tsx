@@ -50,6 +50,26 @@ const SurahPage = () => {
         سورة {surahNames[surahId]}
       </h1>
 
+       <div className="flex justify-center gap-4 mb-8">
+
+        <Link
+          to={`/surah/${surahId - 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
+        >
+         السورة السابقة ( {surahNames[surahId - 1]} )
+        </Link>
+
+       
+
+        <Link
+          to={`/surah/${surahId + 1}`}
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
+        >
+          السورة التالية ( {surahNames[surahId + 1]} )
+        </Link>
+
+      </div>
+
 
 
       {/* التحكم في حجم الخط */}
@@ -80,29 +100,9 @@ const SurahPage = () => {
           A+
         </button>
 
-
-
-         <div className="flex justify-center gap-4 mb-8">
-
-        <Link
-          to={`/surah/${surahId - 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
-        >
-         السورة السابقة ( {surahNames[surahId - 1]} )
-        </Link>
-
-       
-
-        <Link
-          to={`/surah/${surahId + 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition"
-        >
-          السورة التالية ( {surahNames[surahId + 1]} )
-        </Link>
-
       </div>
 
-      </div>
+      
 
       <div className="mb-8 text-center bg-blue-900/40 border border-blue-700 text-blue-200 px-6 py-4 rounded-2xl max-w-xl mx-auto">
         لو عايز تحفظ مكان قراءتك اضغط على الآية اللي وقفت عندها
