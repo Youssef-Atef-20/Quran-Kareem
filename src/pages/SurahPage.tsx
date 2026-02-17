@@ -55,7 +55,7 @@ const SurahPage = () => {
 
         <Link
           to={"/surah"}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center "
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center "
         >
          كل السور
         </Link>
@@ -64,7 +64,7 @@ const SurahPage = () => {
 
         <Link
           to={"/"}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center"
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center"
         >
          القائمة الرئيسية
         </Link>
@@ -162,7 +162,7 @@ const SurahPage = () => {
 
         <Link
           to={`/surah/${surahId - 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center "
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center "
         >
          <div>السورة السابقة </div>  ( {surahNames[surahId - 1]} )
         </Link>
@@ -171,7 +171,7 @@ const SurahPage = () => {
 
         <Link
           to={`/surah/${surahId + 1}`}
-          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-40 text-center bg-green-700"
+          className="px-4 py-2 rounded-xl border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black transition flex flex-col justify-center items-center w-1/3 text-center bg-green-700"
         >
          <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
         </Link>
