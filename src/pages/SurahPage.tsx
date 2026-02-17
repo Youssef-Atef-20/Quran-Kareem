@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom"
 import { useQuran } from "../hooks/useQuran"
 import { surahNames } from "../data/surahNames"
@@ -117,39 +118,42 @@ const SurahPage = () => {
       )}
 
       {/* الآيات */}
-      <div dir="rtl">
+     {surah.map((ayah) => (
+  <React.Fragment key={ayah.verse}>
 
-        {surah.map((ayah) => (
-          <p
-            key={ayah.verse}
-            ref={(el) => {
-              ayahRefs.current[ayah.verse] = el
-            }}
+    <p
+      ref={(el) => {
+        ayahRefs.current[ayah.verse] = el
+      }}
+      onClick={() => {
+        setLastRead(surahId, ayah.verse)
+        setShowSaved(true)
 
-            onClick={() => {
-              setLastRead(surahId, ayah.verse)
-              setShowSaved(true)
+        setTimeout(() => {
+          setShowSaved(false)
+        }, 2000)
+      }}
+      className="mb-6 text-center cursor-pointer"
+      style={{
+        fontSize: `${fontSize}px`,
+        lineHeight: `${fontSize * 2}px`
+      }}
+    >
+      <span className="text-green-700 ml-4 inline-block">
+        ﴿{ayah.verse}﴾
+      </span>
+      {ayah.text}
+    </p>
 
-              setTimeout(() => {
-                setShowSaved(false)
-              }, 2000)
-            }}
-
-            className="mb-6 text-center cursor-pointer"
-            style={{
-              fontSize: `${fontSize}px`,
-              lineHeight: `${fontSize * 2}px`
-            }}
-
-          >
-            <span className="text-green-700 ml-4 inline-block">
-              ﴿{ayah.verse}﴾
-            </span>
-            {ayah.text}
-          </p>
-        ))}
-
+    {ayah.part && (
+      <div className="text-center my-8 text-yellow-500 font-bold">
+       ========== نهاية الجزء {ayah.part} ==========
       </div>
+    )}
+
+  </React.Fragment>
+))}
+
 
       {showSaved && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-2xl shadow-lg animate-fade flex items-center gap-2 whitespace-nowrap">
