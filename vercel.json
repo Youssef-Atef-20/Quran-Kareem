@@ -1,10 +1,6 @@
 {
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        { "key": "Content-Type", "value": "application/xml" }
-      ]
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
