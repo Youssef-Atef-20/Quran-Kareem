@@ -132,7 +132,7 @@ const SurahPage = () => {
 
         <div className="leading-relaxed">
           <p className="text-gray-300 text-lg">
-            استمع لتلاوة
+            يمكنك الاستماع لتلاوة
           </p>
 
           <h2 className="text-2xl md:text-3xl font-bold text-white mt-1">
