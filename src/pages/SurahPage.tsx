@@ -20,6 +20,8 @@ const SurahPage = () => {
   const surahId = Number(id)
   const surah = quran[surahId]
 
+  const audioUrl = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${surahId}.mp3`
+  const audioRef = useRef<HTMLAudioElement | null>(null)
   // refs للآيات
   const ayahRefs = useRef<{ [key: number]: HTMLParagraphElement | null }>({})
 
@@ -36,6 +38,21 @@ const SurahPage = () => {
       }, 400)
     }
   }, [surahId, savedAyah, savedSurah])
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    // يوقف أي صوت قديم
+    audio.pause()
+
+    // يرجع للصفر
+    audio.currentTime = 0
+
+    // يجبر المتصفح يبدأ تحميل السورة الجديدة
+    audio.load()
+
+  }, [surahId])
 
 
 
@@ -107,6 +124,36 @@ const SurahPage = () => {
 
       <div className="mb-8 text-center bg-blue-900/40 border border-blue-700 text-blue-200 px-6 py-4 rounded-2xl max-w-xl mx-auto">
         لو عايز تحفظ مكان قراءتك اضغط على الآية اللي وقفت عندها
+      </div>
+
+
+
+      <div className="my-8 flex flex-col items-center gap-5 text-center">
+
+        <div className="leading-relaxed">
+          <p className="text-gray-300 text-lg">
+            استمع لتلاوة
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-1">
+            سورة {surahNames[surahId]}
+          </h2>
+
+          <p className="text-green-400 text-base mt-2">
+            بصوت الشيخ مشاري راشد العفاسي
+          </p>
+        </div>
+
+        <audio
+          ref={audioRef}
+          preload="auto"
+          controls
+          className="w-full max-w-xl rounded-2xl shadow-lg shadow-green-900/20"
+        >
+          <source src={audioUrl} type="audio/mpeg" />
+          المتصفح الخاص بيك لايدعم تشغيل الصوت داخل الموقع
+        </audio>
+
       </div>
 
 
@@ -195,10 +242,7 @@ const SurahPage = () => {
             <div>السورة التالية </div>  ( {surahNames[surahId + 1]} )
           </Link>
         )}
-
-
       </div>
-
 
     </div>
   )
