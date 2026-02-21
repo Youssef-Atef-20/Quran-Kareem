@@ -133,7 +133,7 @@ const SurahPage = () => {
           key={surahId}
           ref={audioRef}
           src={audioUrl}
-          preload="auto"
+          preload="metadata"
           controls
           className="w-full max-w-xl rounded-2xl shadow-lg shadow-green-900/20"
         >
