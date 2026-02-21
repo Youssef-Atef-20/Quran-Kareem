@@ -20,7 +20,7 @@ const SurahPage = () => {
   const surahId = Number(id)
   const surah = quran[surahId]
 
-  const audioUrl = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${surahId}.mp3`
+  const audioUrl = `https://server8.mp3quran.net/afs/${String(surahId).padStart(3, '0')}.mp3`
   const audioRef = useRef<HTMLAudioElement | null>(null)
   // refs للآيات
   const ayahRefs = useRef<{ [key: number]: HTMLParagraphElement | null }>({})
@@ -38,8 +38,6 @@ const SurahPage = () => {
       }, 400)
     }
   }, [surahId, savedAyah, savedSurah])
-
-
 
 
 
@@ -134,11 +132,11 @@ const SurahPage = () => {
         <audio
           key={surahId}
           ref={audioRef}
-          preload="metadata"
+          src={audioUrl}
+          preload="auto"
           controls
           className="w-full max-w-xl rounded-2xl shadow-lg shadow-green-900/20"
         >
-          <source src={audioUrl} type="audio/mpeg" />
           المتصفح الخاص بيك لايدعم تشغيل الصوت داخل الموقع
         </audio>
 
