@@ -6,7 +6,7 @@ import { surahNames } from "../data/surahNames"
 
 const Home = () => {
   const { surah, ayah } = useLastRead()
- 
+
   return (
     <div className="flex flex-col items-center justify-center text-center p-6" role="main">
 

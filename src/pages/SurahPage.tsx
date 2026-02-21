@@ -39,20 +39,7 @@ const SurahPage = () => {
     }
   }, [surahId, savedAyah, savedSurah])
 
-  useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
 
-    // يوقف أي صوت قديم
-    audio.pause()
-
-    // يرجع للصفر
-    audio.currentTime = 0
-
-    // يجبر المتصفح يبدأ تحميل السورة الجديدة
-    audio.load()
-
-  }, [surahId])
 
 
 
@@ -145,8 +132,9 @@ const SurahPage = () => {
         </div>
 
         <audio
+          key={surahId}
           ref={audioRef}
-          preload="auto"
+          preload="metadata"
           controls
           className="w-full max-w-xl rounded-2xl shadow-lg shadow-green-900/20"
         >
