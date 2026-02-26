@@ -39,6 +39,10 @@ const SurahPage = () => {
     }
   }, [surahId, savedAyah, savedSurah])
 
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}, [surahId])
+
 
 
 
