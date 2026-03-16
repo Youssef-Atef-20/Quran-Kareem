@@ -12,7 +12,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - **📖 114 Surahs** — Full text of the Holy Quran with clear Arabic typography for easy reading.
 - **🔊 Audio Recitation** — Listen to high-quality Quran recitation for each Surah directly from the browser.
@@ -132,8 +132,9 @@ Full Open Graph tags for rich previews when sharing links on **WhatsApp**, **Fac
 
 ## 👤 Author
 
-**Youssef Atef** Software Engineering Student | Alexandria University  
-🔗 [GitHub Profile](https://github.com/Youssef-Atef-20)
+**Youssef Atef** Software Industry and Multimedia Student | Alexandria University  
+🔗 [Github Profile](https://github.com/Youssef-Atef-20)
+🔗 [Portfolio](https://youssef-atef-portfolio.vercel.app/)
 
 ---
 
