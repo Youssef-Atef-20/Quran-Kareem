@@ -119,7 +119,7 @@ const SurahPage = () => {
 
       <div className="my-8 flex flex-col items-center gap-5 text-center">
 
-        <div className="leading-relaxed">
+        <div className="flex flex-col items-center gap-1">
           <p className="text-gray-300 text-lg">
             يمكنك الاستماع لتلاوة
           </p>
