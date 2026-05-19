@@ -119,7 +119,7 @@ const SurahPage = () => {
 
       <div className="my-8 flex flex-col items-center gap-5 text-center">
 
-        <div className="leading-relaxed">
+        <div className="flex flex-col items-center gap-1">
           <p className="text-gray-300 text-lg">
             يمكنك الاستماع لتلاوة
           </p>
@@ -168,7 +168,7 @@ const SurahPage = () => {
           )}
 
           {/* 2) البسملة - بداية السورة فقط */}
-          {index === 0 && ayah.verse === 1 && surahId !== 9 && (
+          {index === 0 && ayah.verse === 1 && surahId !== 9 && surahId !== 1 &&(
             <h2 className="text-2xl text-center mb-10 text-green-700">
               بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
             </h2>
