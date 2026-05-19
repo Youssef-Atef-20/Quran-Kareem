@@ -8,7 +8,7 @@ const Home = () => {
   const { surah, ayah } = useLastRead()
 
   return (
-    <div className="flex flex-col items-center justify-center text-center p-6" role="main">
+    <main className="flex flex-col items-center justify-center text-center p-6" role="main">
 
       <h1 className="text-5xl font-bold mb-6 text-blue-400">
         القرآن الكريم
@@ -40,7 +40,7 @@ const Home = () => {
       </Link>
 
 
-    </div>
+    </main>
   )
 }
 
