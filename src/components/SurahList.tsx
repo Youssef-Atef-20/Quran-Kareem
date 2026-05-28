@@ -18,6 +18,7 @@ const SurahList = () => {
     return ""
   }
 
+  
   const getQuranSurah = (idx: number) => {
     if (idx >= 1 && idx <= 114 && Object.prototype.hasOwnProperty.call(quran, idx)) {
       return quran[idx]
