@@ -12,6 +12,8 @@ const SurahList = () => {
   return (
    <div className=" mx-auto p-6 flex flex-wrap justify-center gap-4">
 
+    <h2>كل سور القرأن الكريم</h2>
+
       {surahs.map((id) => (
         <Link
           key={id}
