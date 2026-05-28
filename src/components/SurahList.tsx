@@ -11,6 +11,20 @@ const SurahList = () => {
     .map(Number)
     .sort((a, b) => a - b)
 
+  const getSurahName = (idx: number): string => {
+    if (idx >= 1 && idx <= 114 && Object.prototype.hasOwnProperty.call(surahNames, idx)) {
+      return surahNames[idx]
+    }
+    return ""
+  }
+
+  const getQuranSurah = (idx: number) => {
+    if (idx >= 1 && idx <= 114 && Object.prototype.hasOwnProperty.call(quran, idx)) {
+      return quran[idx]
+    }
+    return undefined
+  }
+
   const normalizeArabic = (text: string) => {
     if (!text) return ""
     return text
@@ -21,7 +35,7 @@ const SurahList = () => {
   }
 
   const filteredSurahs = surahs.filter((id) => {
-    const name = surahNames[id] || ""
+    const name = getSurahName(id)
     const normalizedName = normalizeArabic(name)
     const normalizedSearch = normalizeArabic(searchTerm)
     return normalizedName.includes(normalizedSearch) || id.toString().includes(searchTerm)
@@ -30,10 +44,10 @@ const SurahList = () => {
   return (
     <div className="min-h-screen w-full max-w-5xl mx-auto px-4 py-8 flex flex-col items-center">
       {/* Header Banner */}
-      <div className="w-full mb-10 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-emerald-950/40 via-gray-900/40 to-teal-950/30 border border-emerald-500/20 shadow-xl shadow-emerald-950/10 text-center relative overflow-hidden">
+      <div className="w-full mb-10 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-blue-950/40 via-gray-900/40 to-indigo-950/30 border border-blue-500/20 shadow-xl shadow-blue-950/10 text-center relative overflow-hidden">
         {/* Decorative background blur/gradients */}
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
         
         <div className="flex justify-between items-center mb-6">
           <Link
@@ -43,13 +57,13 @@ const SurahList = () => {
             <span>←</span>
             <span>الرئيسية</span>
           </Link>
-          <div className="text-xs font-mono text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/20">
+          <div className="text-xs font-mono text-blue-400 bg-blue-950/40 px-3 py-1 rounded-full border border-blue-500/20">
             {surahs.length} سورة
           </div>
         </div>
 
         {/* Beautiful Quran Icon / SVG */}
-        <div className="mx-auto w-16 h-16 mb-4 text-emerald-400 flex items-center justify-center bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
+        <div className="mx-auto w-16 h-16 mb-4 text-blue-400 flex items-center justify-center bg-blue-500/10 rounded-2xl border border-blue-500/20">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -69,7 +83,7 @@ const SurahList = () => {
         <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-wide font-amiri">
           المصحف الشريف
         </h1>
-        <h2 className="text-emerald-400 text-lg md:text-xl font-medium mb-6">
+        <h2 className="text-blue-400 text-lg md:text-xl font-medium mb-6">
           جميع سور القرآن الكريم
         </h2>
 
@@ -80,7 +94,7 @@ const SurahList = () => {
             placeholder="ابحث عن سورة بالاسم أو الرقم..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-5 py-3 pr-12 rounded-2xl border border-gray-700/60 bg-gray-950/40 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition text-right"
+            className="w-full px-5 py-3 pr-12 rounded-2xl border border-gray-700/60 bg-gray-950/40 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition text-right"
           />
           <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-500">
             <svg
@@ -108,19 +122,19 @@ const SurahList = () => {
             <Link
               key={id}
               to={`/surah/${id}`}
-              className="relative group p-5 rounded-2xl border border-gray-800 bg-gray-900/20 text-center hover:border-emerald-500 hover:bg-emerald-950/20 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-950/30 flex flex-col items-center justify-center min-h-[110px]"
+              className="relative group p-5 rounded-2xl border border-gray-800 bg-gray-900/20 text-center hover:border-blue-500 hover:bg-blue-950/20 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-950/30 flex flex-col items-center justify-center min-h-[110px]"
             >
               {/* Surah number/index */}
-              <span className="absolute top-3 right-3 text-xs font-mono text-emerald-400/60 group-hover:text-emerald-400 border border-emerald-500/10 group-hover:border-emerald-500/30 px-2 py-0.5 rounded-md bg-emerald-500/5 transition-colors">
+              <span className="absolute top-3 right-3 text-xs font-mono text-blue-400/60 group-hover:text-blue-400 border border-blue-500/10 group-hover:border-blue-500/30 px-2 py-0.5 rounded-md bg-blue-500/5 transition-colors">
                 {id}
               </span>
 
-              <h3 className="text-xl font-bold text-gray-200 group-hover:text-emerald-300 transition-colors mt-3">
-                {surahNames[id]}
+              <h3 className="text-xl font-bold text-gray-200 group-hover:text-blue-300 transition-colors mt-3">
+                {getSurahName(id)}
               </h3>
               
-              <span className="text-xs text-gray-500 group-hover:text-emerald-400/80 transition-colors mt-2">
-                {quran[id]?.length} آية
+              <span className="text-xs text-gray-500 group-hover:text-blue-400/80 transition-colors mt-2">
+                {getQuranSurah(id)?.length} آية
               </span>
             </Link>
           ))}
