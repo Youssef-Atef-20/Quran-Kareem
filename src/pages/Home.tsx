@@ -4,6 +4,7 @@ import { surahNames } from "../data/surahNames"
 
 
 
+
 const Home = () => {
   const { surah, ayah } = useLastRead()
 
