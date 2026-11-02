@@ -112,7 +112,7 @@ const SurahPage = () => {
 
 
       <div className="mb-8 text-center bg-blue-900/40 border border-blue-700 text-blue-200 px-6 py-4 rounded-2xl max-w-xl mx-auto">
-        لو عايز تحفظ مكان قراءتك اضغط على الآية اللي وقفت عندها
+       لحفظ موضع قراءتك، اضغط على الآية التي توقفت عندها
       </div>
 
 
