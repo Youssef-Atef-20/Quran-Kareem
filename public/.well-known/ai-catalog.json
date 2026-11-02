@@ -1,0 +1,48 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Quran Kareem",
+    "identifier": "https://quran-kareem-ya-21.vercel.app",
+    "documentationUrl": "https://quran-kareem-ya-21.vercel.app/auth.md",
+    "logoUrl": "https://quran-kareem-ya-21.vercel.app/quran-kareem.webp"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:quran-kareem-ya-21.vercel.app:api:quran",
+      "displayName": "Quran Kareem API",
+      "type": "application/openapi+json",
+      "url": "https://quran-kareem-ya-21.vercel.app/openapi.json",
+      "description": "OpenAPI specification for Holy Quran chapters, verse retrieval, and health endpoints.",
+      "representativeQueries": [
+        "search Holy Quran surahs and ayahs",
+        "read Quran online Arabic text",
+        "fetch Quranic verses with verse counts"
+      ]
+    },
+    {
+      "identifier": "urn:air:quran-kareem-ya-21.vercel.app:mcp:quran-server",
+      "displayName": "Quran Kareem MCP Server",
+      "type": "application/json",
+      "url": "https://quran-kareem-ya-21.vercel.app/.well-known/mcp/server-card.json",
+      "description": "Model Context Protocol server card for AI agent tools to browse and read the Holy Quran.",
+      "representativeQueries": [
+        "connect to Quran MCP server",
+        "interact with Holy Quran using Model Context Protocol",
+        "AI agent tool to search Quran verses"
+      ]
+    },
+    {
+      "identifier": "urn:air:quran-kareem-ya-21.vercel.app:skill:quran-reader",
+      "displayName": "Quran Reader Agent Skill",
+      "type": "text/markdown",
+      "url": "https://quran-kareem-ya-21.vercel.app/.well-known/agent-skills/quran-reader/SKILL.md",
+      "description": "Agent skill instructions for navigating and reading the Holy Quran.",
+      "representativeQueries": [
+        "instructions for AI to read Quran surahs",
+        "how to navigate Quran Kareem website as an agent",
+        "Holy Quran reading skill for AI assistants"
+      ]
+    }
+  ]
+}
+

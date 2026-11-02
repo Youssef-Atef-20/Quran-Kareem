@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "quran-reader",
+      "type": "skill-md",
+      "description": "Retrieve Quranic Surahs, Ayahs, translations, and search the Holy Quran text.",
+      "url": "https://quran-kareem-ya-21.vercel.app/.well-known/agent-skills/quran-reader/SKILL.md",
+      "digest": "61dbbee61159eb97685f094f4c0e7d05ffacd69f8e94f50067423c768367115d"
+    }
+  ]
+}
+

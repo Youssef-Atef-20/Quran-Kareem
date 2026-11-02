@@ -1,0 +1,15 @@
+{
+  "resource": "https://quran-kareem-ya-21.vercel.app",
+  "authorization_servers": [
+    "https://quran-kareem-ya-21.vercel.app"
+  ],
+  "scopes_supported": [
+    "read:quran",
+    "public"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "resource_documentation": "https://quran-kareem-ya-21.vercel.app/auth.md"
+}
+

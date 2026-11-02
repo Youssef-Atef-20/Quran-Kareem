@@ -1,0 +1,19 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1.json",
+  "version": "1.0",
+  "serverInfo": {
+    "name": "quran-kareem-mcp",
+    "version": "1.0.0",
+    "description": "Holy Quran MCP Server providing Quran recitation text, surah lists, and search capabilities."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://quran-kareem-ya-21.vercel.app/api/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  }
+}
+
