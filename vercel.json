@@ -12,13 +12,7 @@
       "destination": "/index.md"
     },
     {
-      "source": "/((?!api/|\\.well-known/|.*\\.[^/]+$).*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/",
+      "source": "/index.html",
       "has": [
         {
           "type": "header",
@@ -26,25 +20,14 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        },
-        {
-          "key": "x-markdown-tokens",
-          "value": "2400"
-        },
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "Link",
-          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/ai-catalog.json>; rel=\"service-desc\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/mcp/server-card.json>; rel=\"service-desc\", </auth.md>; rel=\"author-doc\""
-        }
-      ]
+      "destination": "/index.md"
     },
+    {
+      "source": "/((?!api/|\\.well-known/|.*\\.[^/]+$).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
     {
       "source": "/",
       "headers": [

@@ -1,4 +1,4 @@
-# Agent Authentication & Registration (Quran Kareem)
+# Quran Kareem auth.md
 
 Welcome to Quran Kareem. This service provides free and open access to the Holy Quran text, surahs, and verses.
 
@@ -28,4 +28,3 @@ Accept: text/markdown
 ```
 
 Or programmatically discover resources using the API Catalog at `/.well-known/api-catalog` and ARD Manifest at `/.well-known/ai-catalog.json`.
-
